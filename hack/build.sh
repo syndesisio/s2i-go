@@ -39,7 +39,7 @@ function docker_build_with_version {
   local dockerfile="$1"
 
   # Use perl here to make this compatible with OSX
-  DOCKERFILE_PATH=$(perl -MCwd -e 'print Cwd::abs_path shift' $dockerfile)
+  DOCKERFILE_PATH=$(readlink -f $dockerfile)
 
   cp ${DOCKERFILE_PATH} "${DOCKERFILE_PATH}.version"
 
