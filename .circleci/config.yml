@@ -9,7 +9,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Install dependencies
-          command: apk add --no-cache make bash
+          command: apk add --no-cache make bash python3
       - run:
           name: Build Docker images
           command: make
