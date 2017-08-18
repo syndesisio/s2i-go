@@ -6,7 +6,7 @@ MAINTAINER SoftwareCollections.org <sclorg@redhat.com>
 
 EXPOSE 8080
 
-ENV GO_MINOR_VERSION=7 \
+ENV GO_MINOR_VERSION=8 \
     GO_PATCH_VERSION=3
 
 ENV GO_VERSION=1.${GO_MINOR_VERSION} \
@@ -22,7 +22,7 @@ LABEL io.k8s.description="Platform for building and running Go applications" \
 
 # Install Go toolchain
 RUN yum install -y centos-release-scl && \
-    INSTALL_PKGS="mercurial" && \
+    INSTALL_PKGS="mercurial nss_wrapper" && \
     yum install -y --setopt=tsflags=nodocs --enablerepo=centosplus $INSTALL_PKGS && \
     rpm -V $INSTALL_PKGS && \
     yum clean all -y && \
